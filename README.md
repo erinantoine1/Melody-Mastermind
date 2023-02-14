@@ -41,7 +41,7 @@ Melody Mastermind is a full-stack game testing music knowledge across multiple g
 ### Main Menu <a name="mainMenuFeatures"></a>
 
 <img src="https://i.imgur.com/NzgEqnC.png" width=75% height=75%/>
-- Navigation
+-Navigation
 <ul>
 	<li><b>New Game:</b> To settings page (to create a new game)</li>
 	<li><b>How to Play:</b> To game tutorial</li>
@@ -51,14 +51,14 @@ Melody Mastermind is a full-stack game testing music knowledge across multiple g
 ### Settings <a name="settingsFeatures"></a>
 
 <img src="./GIF/settings.gif" width=75% height=75% />
-- Users are prompted to choose various settings for their new game <br />
+-Users are prompted to choose various settings for their new game <br />
 <ul>
 	<li><b>Name:</b> Name/nickname/username, limited to 20 characters (special chars/spaces allowed)</li>
 	<li><b># of Songs:</b> The total number of songs to be quizzed on in your game (10, 20, 30)</li>
 	<li><b>Difficulty:</b> The difficulty of your game (Easy, Medium, Hard)</li>
 	<li><b>Genre:</b> The genre of the songs in your game (Random, Pop, Alt/Rock)</li>
 </ul>
-- Navigation
+-Navigation
 <ul>
 	<li><b>x:</b> To main menu</li>
 	<li><b>i:</b> To game tutorial</li>
@@ -66,15 +66,20 @@ Melody Mastermind is a full-stack game testing music knowledge across multiple g
 
 ### In Game <a name="inGameFeatures"></a>
 
-<img src="./GIFs/gameStart.gif" width=75% height=75%/>
--The left panel contains important information for the user (current song #/score/time/settings info) that remains visible and is updated throughout the game<br /><br />
--Users can also use the buttons on the bottom left corner to navigate to other pages (Note: users will lose all progress when navigating away from the game)
+<img src="./GIF/gameStart.gif" width=75% height=75%/>
+-The left panel contains important info for the user that remains visible/updated throughout the game
 <ul>
-	<li>How to Play: Navigates to the game tutorial</li>
-    	<li>Leaderboard: Navigates to the leaderboard containing scores/times for all users across all game modes</li>
-	<li>Main Menu: Navigates to the main menu of the game </li>
+	<li><b>Current Song #</b></li>
+	<li><b>Performance Info:</b> Total game time, points scored, # correct/partially correct/incorrect</li>
+	<li><b>Settings Info:</b> Game difficulty, song genre, total # of songs in game</li>
 </ul>
--Animations in the center of the screen draw attention to where the user will directly interact with the UI
+-Navigation
+<ul>
+	<li><b>How to Play:</b> To game tutorial</li>
+	<li><b>Leaderboard:</b> To scores/times</li>
+	<li><b>Main Menu:</b> To main menu</li>
+</ul>
+-Animations in the center of the screen draw attention to where the user will directly interact with game
 
 
 ### Game Over <a name="gameOverFeatures"></a>
