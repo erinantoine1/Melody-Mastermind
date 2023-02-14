@@ -40,28 +40,27 @@ Melody Mastermind is a full-stack game testing music knowledge across multiple g
 ### Main Menu <a name="mainMenuFeatures"></a>
 
 <img src="https://i.imgur.com/NzgEqnC.png" width=75% height=75%/>
-- From the main menu, users may navigate to other pages in the app by clicking on the associated button
+- Navigation
 <ul>
-	<li>New Game: Navigates to the settings page to create a new game</li>
-	<li>How to Play: Navigates to the game tutorial</li>
-    	<li>Leaderboard: Navigates to the leaderboard containing scores/times for all users across all game modes</li>
+	<li><b>New Game:</b> To settings page (to create a new game)</li>
+	<li><b>How to Play:</b> To game tutorial</li>
+	<li><b>Leaderboard:</b> To scores/times</li>
 </ul>
-- All .svg images were custom-designed using Canva to embody the carefree/whimsical theme of the game
 
 ### Settings <a name="settingsFeatures"></a>
 
-<img src="./GIFs/Settings.gif" width=75% height=75% />
+<img src="./GIF/settings.gif" width=75% height=75% />
 - Users are prompted to choose various settings for their new game <br />
 <ul>
-	<li>Name: Name/nickname/username, limited to 20 characters (displayed with scores on leaderboard)</li>
-	<li># of Songs: The total number of songs to be quizzed on in your game (10, 20, 30)</li>
-	<li>Difficulty: The difficulty of your game (Easy, Medium, Hard)</li>
-	<li>Genre: The genre of the songs in your game (Random, Pop, Alt/Rock)</li>
+	<li><b>Name:</b> Name/nickname/username, limited to 20 characters (special chars/spaces allowed)</li>
+	<li><b># of Songs:</b> The total number of songs to be quizzed on in your game (10, 20, 30)</li>
+	<li><b>Difficulty:</b> The difficulty of your game (Easy, Medium, Hard)</li>
+	<li><b>Genre:</b> The genre of the songs in your game (Random, Pop, Alt/Rock)</li>
 </ul>
-- From settings, users may navigate to other pages in the app by clicking on the associated icon @ top of page
+- Navigation
 <ul>
-	<li><: Navigates back to the main menu</li>
-	<li>!: Navigates to the game tutorial</li>
+	<li><img src="./GIF/xIcon.svg"/>: To main menu</li>
+	<li>i: To game tutorial</li>
 </ul>
 
 ### In Game <a name="inGameFeatures"></a>
