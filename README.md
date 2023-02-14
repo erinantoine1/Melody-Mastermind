@@ -10,7 +10,8 @@ Melody Mastermind is a full-stack game testing music knowledge across multiple g
     2. [Settings](#settingsFeatures)
     3. [In Game](#inGameFeatures)
     4. [Game Over](#gameOverFeatures)
-    5. [Leaderboard](#leaderboardFeatures)
+    5. [Tutorial](#tutorialFeatures)
+    6. [Leaderboard](#leaderboardFeatures)
 4. [Installation](#installation)
 
 ## Project Engineer <a name="projectEngineer"></a>
@@ -59,8 +60,8 @@ Melody Mastermind is a full-stack game testing music knowledge across multiple g
 </ul>
 - Navigation
 <ul>
-	<li><img src="./GIF/xIcon.svg"/>: To main menu</li>
-	<li>i: To game tutorial</li>
+	<li><b>x:</b> To main menu</li>
+	<li><b>i:</b> To game tutorial</li>
 </ul>
 
 ### In Game <a name="inGameFeatures"></a>
@@ -79,6 +80,9 @@ Melody Mastermind is a full-stack game testing music knowledge across multiple g
 ### Game Over <a name="gameOverFeatures"></a>
 
 <img src="https://i.imgur.com/AYqtWRL.png" width=75% height=75%/>
+-Description coming soon
+
+### Game Tutorial <a name="tutorialFeatures"></a>
 -Description coming soon
 
 ### Leaderboard <a name="leaderboardFeatures"></a>
