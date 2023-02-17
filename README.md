@@ -118,6 +118,10 @@ Melody Mastermind is a full-stack game testing music knowledge across multiple g
 </ul>
 
 ## Game Tutorial <a name="tutorialFeatures"></a>
+
+<img src="./GIF/tutorial.gif.sb-8f463ffc-P7b1nE" width=75% height=75%/>
+
+
 -Description coming soon
 
 ## Leaderboard <a name="leaderboardFeatures"></a>
