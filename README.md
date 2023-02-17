@@ -5,14 +5,13 @@ Melody Mastermind is a full-stack game testing music knowledge across multiple g
 ## Contents
 1. [Project Engineer](#projectEngineer)
 2. [Technologies Used](#techUsed)
-3. [Features](#features)
-    1. [Main Menu](#mainMenuFeatures)
-    2. [Settings](#settingsFeatures)
-    3. [In Game](#inGameFeatures)
-    4. [Game Over](#gameOverFeatures)
-    5. [Tutorial](#tutorialFeatures)
-    6. [Leaderboard](#leaderboardFeatures)
-4. [Installation](#installation)
+3. [Main Menu](#mainMenuFeatures)
+4. [Settings](#settingsFeatures)
+5. [In Game](#inGameFeatures)
+6. [Game Over](#gameOverFeatures)
+7. [Tutorial](#tutorialFeatures)
+8. [Leaderboard](#leaderboardFeatures)
+9. [Installation](#installation)
 
 ## Project Engineer <a name="projectEngineer"></a>
 ### Erin Antoine
@@ -36,9 +35,7 @@ Melody Mastermind is a full-stack game testing music knowledge across multiple g
 <img src="https://tutorialzine.com/media/2016/08/15_howler.png" width=100 height=28/>
  <img src="https://yggdrasill-7c9.gallerycdn.vsassets.io/extensions/yggdrasill-7c9/axios-snippets/1.0.0/1547542460873/Microsoft.VisualStudio.Services.Icons.Default" width=75 height=28/>
 
-## Features <a name="features"></a>
-
-### Main Menu <a name="mainMenuFeatures"></a>
+## Main Menu <a name="mainMenuFeatures"></a>
 
 <img src="https://i.imgur.com/NzgEqnC.png" width=75% height=75%/>
 -Navigation
@@ -48,7 +45,7 @@ Melody Mastermind is a full-stack game testing music knowledge across multiple g
 	<li><b>Leaderboard:</b> To scores/times</li>
 </ul>
 
-### Settings <a name="settingsFeatures"></a>
+## Settings <a name="settingsFeatures"></a>
 
 <img src="./GIF/settings.gif" width=75% height=75% />
 -Users are prompted to choose various settings for their new game <br />
@@ -64,7 +61,7 @@ Melody Mastermind is a full-stack game testing music knowledge across multiple g
 	<li><b>i:</b> To game tutorial</li>
 </ul>
 
-### In Game <a name="inGameFeatures"></a>
+## In Game <a name="inGameFeatures"></a>
 
 <img src="./GIF/gameStart.gif" width=75% height=75%/>
 -The left panel contains important info for the user that remains visible/updated throughout the game
@@ -106,9 +103,9 @@ Melody Mastermind is a full-stack game testing music knowledge across multiple g
           <li>Score is not added to leaderboard if you run out of lives</li>
         </ul>
 
-### Game Over <a name="gameOverFeatures"></a>
+## Game Over <a name="gameOverFeatures"></a>
 
-<img src="https://i.imgur.com/AYqtWRL.png" width=75% height=75%/>
+<img src="./GIF/gameOver.png" width=75% height=75%/>
 -A performance summary is provided once game has ended
         <ul>
           <li>Summary includes average time per song calculation</li>
@@ -120,10 +117,10 @@ Melody Mastermind is a full-stack game testing music knowledge across multiple g
 	<li><b>Main Menu:</b> To main menu</li>
 </ul>
 
-### Game Tutorial <a name="tutorialFeatures"></a>
+## Game Tutorial <a name="tutorialFeatures"></a>
 -Description coming soon
 
-### Leaderboard <a name="leaderboardFeatures"></a>
+## Leaderboard <a name="leaderboardFeatures"></a>
 
 <img src="https://i.imgur.com/aZnUvgN.png" width=75% height=75%/>
 -Description coming soon
