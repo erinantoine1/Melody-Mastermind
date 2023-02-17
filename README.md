@@ -79,13 +79,46 @@ Melody Mastermind is a full-stack game testing music knowledge across multiple g
 	<li><b>Leaderboard:</b> To scores/times</li>
 	<li><b>Main Menu:</b> To main menu</li>
 </ul>
--Animations in the center of the screen draw attention to where the user will directly interact with game
-
+-Animations in the center of the screen draw attention to where the user will directly interact with game <br /><br />
+<img src="./GIF/guesses.gif" width=75% height=75%/>
+ -Making A Guess
+ <ul>
+        <li>Type the song title and/or artist, then click 'Guess!' button or "Enter" key to submit guess</li>
+        <li><b>Spelling counts, but punctuation/capitalization do not</b></li>
+        <li><b>Unlimited guesses for each song</b> (until 'Give Up' button is pressed, or both song and artist correct)</li>
+ </ul>
+  -Scoring <b>(Easy Difficulty)</b>
+        <ul>
+          <li>Two points for correct song and artist</li>
+          <li>One point for having either song title OR artist</li>
+          <li>Zero points if neither are correct</li>
+        </ul>
+  -Scoring <b>(Medium Difficulty)</b>
+        <ul>
+          <li>Two points for correct song and artist</li>
+          <li>Zero points if neither are correct</li>
+        </ul>
+  -Scoring <b>(Hard Difficulty)</b>
+        <ul>
+          <li>Two points for correct song and artist</li>
+          <li>Zero points if neither are correct</li>
+          <li>Limited to 3 lives (will be shown in left sidebar)</li>
+          <li>Score is not added to leaderboard if you run out of lives</li>
+        </ul>
 
 ### Game Over <a name="gameOverFeatures"></a>
 
 <img src="https://i.imgur.com/AYqtWRL.png" width=75% height=75%/>
--Description coming soon
+-A performance summary is provided once game has ended
+        <ul>
+          <li>Summary includes average time per song calculation</li>
+	  <li>Info about final song also provided</li>
+        </ul>
+-Navigation
+<ul>
+	<li><b>Leaderboard:</b> To scores/times (will now include your score!)</li>
+	<li><b>Main Menu:</b> To main menu</li>
+</ul>
 
 ### Game Tutorial <a name="tutorialFeatures"></a>
 -Description coming soon
