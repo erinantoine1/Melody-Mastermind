@@ -3,22 +3,23 @@
 Melody Mastermind is a full-stack game testing music knowledge across multiple genres
 
 ## Contents
-1. [Project Engineer](#projectEngineer)
-2. [Technologies Used](#techUsed)
-3. [Main Menu](#mainMenuFeatures)
-4. [Settings](#settingsFeatures)
-5. [In Game](#inGameFeatures)
-6. [Game Over](#gameOverFeatures)
-7. [Tutorial](#tutorialFeatures)
-8. [Leaderboard](#leaderboardFeatures)
-9. [Installation](#installation)
+1. [Project Engineer](#projectengineer)
+2. [Technologies Used](#techused)
+3. Features <br />
+	i. [Main Menu](#mainmenufeatures) <br />
+	ii. [Settings](#settingsfeatures) <br />
+	iii. [In Game](#ingamefeatures) <br />
+	iv. [Game Over](#gameoverfeatures) <br />
+	v. [Tutorial](#tutorialfeatures) <br />
+	vi. [Leaderboard](#leaderboardfeatures) <br />
+4. [Installation](#installation)
 
-## Project Engineer <a name="projectEngineer"></a>
+## Project Engineer <a name="projectengineer"></a>
 ### Erin Antoine
 * https://github.com/erinantoine1
 * https://www.linkedin.com/in/erin-antoine/
 
-## Technologies Used <a name="techUsed"></a>
+## Technologies Used <a name="techused"></a>
 
 <img src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E"/> <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB"/>
 <img src="https://img.shields.io/badge/Material%20UI-007FFF?style=for-the-badge&logo=mui&logoColor=white"/>
@@ -36,7 +37,7 @@ Melody Mastermind is a full-stack game testing music knowledge across multiple g
  <img src="https://yggdrasill-7c9.gallerycdn.vsassets.io/extensions/yggdrasill-7c9/axios-snippets/1.0.0/1547542460873/Microsoft.VisualStudio.Services.Icons.Default" width=75 height=28/>
 <img src="https://img.shields.io/badge/Ant%20Design-1890FF?style=for-the-badge&logo=antdesign&logoColor=white"/>
 
-## Main Menu <a name="mainMenuFeatures"></a>
+## Main Menu <a name="mainmenufeatures"></a>
 
 <img src="https://i.imgur.com/NzgEqnC.png" width=75% height=75%/>
 -Navigation
@@ -46,7 +47,7 @@ Melody Mastermind is a full-stack game testing music knowledge across multiple g
 	<li><b>Leaderboard:</b> To scores/times</li>
 </ul>
 
-## Settings <a name="settingsFeatures"></a>
+## Settings <a name="settingsfeatures"></a>
 
 <img src="./GIF/settings.gif" width=75% height=75% />
 -Users are prompted to choose various settings for their new game <br />
@@ -62,7 +63,7 @@ Melody Mastermind is a full-stack game testing music knowledge across multiple g
 	<li><b>i:</b> To game tutorial</li>
 </ul>
 
-## In Game <a name="inGameFeatures"></a>
+## In Game <a name="ingamefeatures"></a>
 
 <img src="./GIF/gameStart.gif" width=75% height=75%/>
 -The left panel contains important info for the user that remains visible/updated throughout the game
@@ -104,7 +105,7 @@ Melody Mastermind is a full-stack game testing music knowledge across multiple g
           <li>Score is not added to leaderboard if you run out of lives</li>
         </ul>
 
-## Game Over <a name="gameOverFeatures"></a>
+## Game Over <a name="gameoverfeatures"></a>
 
 <img src="./GIF/gameOver.png" width=75% height=75%/>
 -A performance summary is provided once game has ended
@@ -118,7 +119,7 @@ Melody Mastermind is a full-stack game testing music knowledge across multiple g
 	<li><b>Main Menu:</b> To main menu</li>
 </ul>
 
-## Game Tutorial <a name="tutorialFeatures"></a>
+## Tutorial <a name="tutorialfeatures"></a>
 
 <img src="./GIF/tutorial.gif" width=75% height=75%/>
 -Quick tutorial that simulates layout of the game while explaining step-by-step
@@ -127,7 +128,7 @@ Melody Mastermind is a full-stack game testing music knowledge across multiple g
 	  <li>Relevant elements of the game will be highlighted in each step</li>
         </ul>
 
-## Leaderboard <a name="leaderboardFeatures"></a>
+## Leaderboard <a name="leaderboardfeatures"></a>
 
 <img src="https://i.imgur.com/aZnUvgN.png" width=75% height=75%/>
 -Scores can be searched be genre, difficulty, or # of songs
@@ -154,14 +155,10 @@ Melody Mastermind is a full-stack game testing music knowledge across multiple g
 
 	`npm install`
 
-4. Compile the project with the command:
-
-	`npm run build`
-
-5. Start the server by entering into command line:
+4. Start the server by entering into command line:
 
 	`npm start`
 
-6. Open project in web browser at:
+5. Open project in web browser at:
 
 	`http://localhost:3000`
