@@ -119,15 +119,21 @@ Melody Mastermind is a full-stack game testing music knowledge across multiple g
 
 ## Game Tutorial <a name="tutorialFeatures"></a>
 
-<img src="./GIF/tutorial.gif.sb-8f463ffc-P7b1nE" width=75% height=75%/>
-
-
--Description coming soon
+<img src="./GIF/tutorial.gif" width=75% height=75%/>
+-Quick tutorial that simulates layout of the game while explaining step-by-step
+        <ul>
+          <li>Press the "Next" button to progress through the tutorial</li>
+	  <li>Relevant elements of the game will be highlighted in each step</li>
+        </ul>
 
 ## Leaderboard <a name="leaderboardFeatures"></a>
 
 <img src="https://i.imgur.com/aZnUvgN.png" width=75% height=75%/>
--Description coming soon
+-Scores can be searched be genre, difficulty, or # of songs
+        <ul>
+		<li>Click on the corresponding dropdown to change the scores displayed</li>
+		<li>To reset search criteria, press the "Reset" button</li>
+        </ul>
 
 ## Installation <a name="installation"></a>
 Coming soon!!
