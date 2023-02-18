@@ -142,18 +142,26 @@ Melody Mastermind is a full-stack game testing music knowledge across multiple g
 </ul>
 
 ## Installation <a name="installation"></a>
-1. Install packages using the following command
+1. From command line, navigate to desired directory and enter the following command to download the app:
+
+	`git clone https://github.com/erinantoine1/Melody-Mastermind.git`
+	
+2. Navigate to the newly downloaded folder with the following command: 
+
+	`cd 'Melody-Mastermind'`
+
+3. Install dependencies using the following command:
 
 	`npm install`
 
-2. Compile the project using webpack
+4. Compile the project with the command:
 
 	`npm run build`
 
-3. Start the server
+5. Start the server by entering into command line:
 
 	`npm start`
 
-4. Open project in web browser at
+6. Open project in web browser at:
 
 	`http://localhost:3000`
