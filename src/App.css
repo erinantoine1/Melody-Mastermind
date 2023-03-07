@@ -66,3 +66,182 @@ tr.leaderboard th, tr.leaderboard td {
   color: '#fafafa';
   font-size: 22px;
 }
+
+#siderOutermost {
+  background-color: #001528;
+  height: 977px;
+  width: 347px;
+  z-index: -2;
+  border-right: 1px #001528 solid;
+}
+
+#siderMiddle {
+  background-color: #001528;
+  height: 977px;
+  width: 342px;
+  z-index: -1;
+  border-right: 3px #1776ff dashed;
+}
+
+#siderInnermost {
+  background-color: #001528;
+  height: 977px;
+  width: 334px;
+  z-index: -1;
+  border-right: 1px #fafafa solid;
+}
+
+#songNum {
+  height: 40%;
+  color: #fafafa;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  justify-content: center;
+}
+
+#songNumImg {
+  width: 100%;
+  height: 150px;
+  font-size: 28px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+#songNumWhiteFlowerImg {
+  height: 300px;
+  width: 300px;
+}
+
+#songNumText {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: -60px;
+  border-radius: 50%;
+  background-color: #001528;
+  z-index: 10;
+  color: #fafafa;
+  width: 135px;
+  height: 135px;
+  border: solid 1px #001528
+}
+
+#songNumSong {
+  font-size: 24px;
+  color: #fafafa;
+  margin-bottom: -80px;
+}
+
+#songNumNum {
+  font-size: 75px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#timerDifficultyGenre {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#timer {
+  color: #1776ff;
+  font-size: 60px;
+  width: 70%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: -65px;
+}
+
+#difficultyGenre {
+  color: #fafafa;
+  font-size: 24px;
+  margin-top: 5px;
+  justify-content: center;
+}
+
+#gameProgress {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  color: #fafafa;
+  font-size: 60px;
+  background-color: #001528;
+  margin-top: 25px;
+  margin-left: 20%;
+  width: 60%;
+}
+
+#correct {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5px;
+}
+
+#progressImgSider {
+  margin-right: 20px;
+  height: 75px;
+  width: 75px;
+}
+
+#incorrect {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#totalSongNumScore {
+  font-size: 24px;
+  color: #fafafa;
+  justify-content: center;
+  margin-left: 35%;
+}
+
+#totalSongNumImg {
+  height: 45px;
+  width: 45px;
+  padding-top: 30px;
+  margin-left: -18px;
+  margin-right: -18px;
+}
+
+#totalSongNumTutorial {
+  margin-top: -22px;
+}
+
+#musicalNoteSiderTutorial {
+  height: 45px;
+  width: 45px;
+  padding-top: 30px;
+  margin-left: -18px;
+  margin-right: -18px;
+}
+
+#buttonsSider {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-end;
+  align-content: flex-end;
+  position: absolute;
+  bottom: 15px;
+  left: 20px;
+}
+
+#siderButton {
+  margin: 10px;
+  width: 270px;
+  height: 50px;
+  font-size: 24px;
+}

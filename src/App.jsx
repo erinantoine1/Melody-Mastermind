@@ -19,6 +19,7 @@ import correct from '../public/icons/smile2.svg';
 import partial from '../public/icons/neutral.svg';
 import incorrect from '../public/icons/frown2.svg';
 import shake from './App.css';
+import './App.css';
 import whiteFlower1 from '../public/icons/whiteFlower1.svg';
 import whiteFlower2 from '../public/icons/whiteFlower2.svg';
 import whiteFlower3 from '../public/icons/whiteFlower3.svg';
@@ -28,17 +29,12 @@ import noRainAlbumArt from '../public/icons/albumArt/noRainAlbumArt.jpeg';
 import billieJeanAlbumArt from '../public/icons/albumArt/billieJeanAlbumArt.jpeg';
 import youOughtaKnowAlbumArt from '../public/icons/albumArt/youOughtaKnowAlbumArt.jpeg';
 
-
 const { Header, Content, Footer, Sider } = Layout;
 
 const App = () => {
   const {
     token: { colorBgContainer },
   } = theme.useToken();
-
-  // const [songArray, setSongArray] = useState(songsArray);
-  // const [unplayedSongs, setUnplayedSongs] = useState(songArray.slice());
-  // const [currentSong, setCurrentSong] = useState(unplayedSongs[Math.floor(Math.random() * songArray.length)]);
   const [lives, setLives] = useState(3);
   const [songArray, setSongArray] = useState([]);
   const [unplayedSongs, setUnplayedSongs] = useState([]);
@@ -52,7 +48,6 @@ const App = () => {
   const [currentGameSettings, setCurrentGameSettings] = useState({});
   const [newGameButtonClicked, setNewGameButtonClicked] = useState(false);
   const [currentScore, setCurrentScore] = useState(0);
-
   const [currentSongNum, setCurrentSongNum] = useState(1);
   const [numCorrect, setNumCorrect] = useState(0);
   const [numPartiallyCorrect, setNumPartiallyCorrect] = useState(0);
@@ -68,23 +63,17 @@ const App = () => {
   const [titleInput, setTitleInput] = useState('');
   const [artistInput, setArtistInput] = useState('');
   const [statusMessageImg, setStatusMessageImg] = useState('');
-
   const [titleInputBorder, setTitleInputBorder] = useState('solid 2px #001528');
   const [artistInputBorder, setArtistInputBorder] = useState('solid 2px #001528');
-
   const [titleInputCorrect, setTitleInputCorrect] = useState(false);
   const [artistInputCorrect, setArtistInputCorrect] = useState(false);
-
   const [disabledTitleInput, setDisabledTitleInput] = useState(false);
   const [disabledArtistInput, setDisabledArtistInput] = useState(false);
-
   const [isCorrectTitleImg, setIsCorrectTitleImg] = useState('');
   const [isCorrectArtistImg, setIsCorrectArtistImg] = useState('');
   const [inTutorial, setInTutorial] = useState(false);
-
   const [displayTutorialReadyButton, setDisplayTutorialReadyButton] = useState(true);
   const [displayTutorialFeedback, setDisplayTutorialFeedback] = useState(false);
-
   const [open, setOpen] = useState(false);
   const [disabled, setDisabled] = useState(false);
   const [bounds, setBounds] = useState({
@@ -94,33 +83,6 @@ const App = () => {
     right: 0,
   });
   const draggleRef = useRef(null);
-  const showModal = () => {
-    setOpen(true);
-  };
-  const handleOk = (e) => {
-    e.preventDefault();
-    setOpen(false);
-    setInGame(false);
-    setMainMenuVisible(true);
-  };
-  const handleCancel = (e) => {
-    console.log(e);
-    setOpen(false);
-  };
-  const onStart = (_event, uiData) => {
-    const { clientWidth, clientHeight } = window.document.documentElement;
-    const targetRect = draggleRef.current?.getBoundingClientRect();
-    if (!targetRect) {
-      return;
-    }
-    setBounds({
-      left: -targetRect.left + uiData.x,
-      right: clientWidth - (targetRect.right - uiData.x),
-      top: -targetRect.top + uiData.y,
-      bottom: clientHeight - (targetRect.bottom - uiData.y),
-    });
-  };
-
   const [leaderboardOpen, setLeaderboardOpen] = useState(false);
   const [leaderboardDisabled, setLeaderboardDisabled] = useState(false);
   const [leaderboardBounds, setLeaderboardBounds] = useState({
@@ -130,49 +92,6 @@ const App = () => {
     right: 0,
   });
   const draggleLeaderboardRef = useRef(null);
-  const showLeaderboardModal = () => {
-    setLeaderboardOpen(true);
-  };
-  const handleLeaderboardOk = (e) => {
-    e.preventDefault();
-    setLeaderboardOpen(false);
-    setInGame(false);
-    setLeaderboardVisible(true);
-  }
-  const handleLeaderboardCancel = (e) => {
-    console.log(e);
-    setLeaderboardOpen(false);
-  };
-  const onLeaderboardStart = (_event, uiData) => {
-    const { clientWidth, clientHeight } = window.document.documentElement;
-    const targetRect = draggleLeaderboardRef.current?.getBoundingClientRect();
-    if (!targetRect) {
-      return;
-    }
-    setLeaderboardBounds({
-      left: -targetRect.left + uiData.x,
-      right: clientWidth - (targetRect.right - uiData.x),
-      top: -targetRect.top + uiData.y,
-      bottom: clientHeight - (targetRect.bottom - uiData.y),
-    });
-  };
-
-  ////////
-  const showTutorial = (e) => {
-    e.preventDefault();
-    setMainMenuVisible(false);
-    setInGame(false);
-    setInTutorial(true);
-    setDisplayTutorialReadyButton(true);
-    setTourOpen(true)
-  }
-
-  const closeTutorial = () => {
-    setInTutorial(false);
-    setMainMenuVisible(true);
-    setTourOpen(false)
-  }
-
   const [tutorialWarnOpen, setTutorialWarnOpen] = useState(false);
   const [tutorialWarnDisabled, setTutorialWarnDisabled] = useState(false);
   const [tutorialWarnBounds, setTutorialWarnBounds] = useState({
@@ -182,41 +101,9 @@ const App = () => {
     right: 0,
   });
   const draggleTutorialWarnRef = useRef(null);
-  const showTutorialWarnModal = (e) => {
-    e.preventDefault();
-    setTutorialWarnOpen(true);
-  };
-  const handleTutorialWarnOk = (e) => {
-    e.preventDefault();
-    setInGame(false);
-    // setInTutorial(true);
-    setTutorialWarnOpen(false);
-    showTutorial(e);
-  }
-
-  const handleTutorialWarnCancel = (e) => {
-    console.log(e);
-    setTutorialWarnOpen(false);
-  };
-  const onTutorialWarnStart = (_event, uiData) => {
-    const { clientWidth, clientHeight } = window.document.documentElement;
-    const targetRect = draggleTutorialWarnRef.current?.getBoundingClientRect();
-    if (!targetRect) {
-      return;
-    }
-    setTutorialWarnBounds({
-      left: -targetRect.left + uiData.x,
-      right: clientWidth - (targetRect.right - uiData.x),
-      top: -targetRect.top + uiData.y,
-      bottom: clientHeight - (targetRect.bottom - uiData.y),
-    });
-  };
-
-
-
-  let timerRef = useRef(new Timer());
-  let timerObj = timerRef.current;
-  let [timer, setTimer] = useState({
+  const timerRef = useRef(new Timer());
+  const timerObj = timerRef.current;
+  const [timer, setTimer] = useState({
     "mytimer" : {
       "time" : {
         mm : "00",
@@ -225,170 +112,7 @@ const App = () => {
       status : "INIT"
     }
   });
-  let {mytimer:{time : {mm, ss}, status}} = timer;
-  let notifier = useCallback((key, value) => {
-    setTimer({
-      [key] : value
-    });
-  }, [timerObj]);
-
-  function onActionClick() {
-    status === "INIT" ? timerObj.start("mytimer") : status === "RUNNING" ? timerObj.pause("mytimer") : timerObj.reset("mytimer");
-  }
-
-  useEffect(() => {
-    timerObj.init({
-      data : {
-        "mytimer" : {
-          time : {
-            mm : "00",
-            ss : "00"
-          },
-          status : "INIT"
-        }
-      },
-      notifier : notifier
-    });
-  }, [timerObj, notifier]);
-
-  useEffect(() => {
-    if (currentSongNum > currentGameSettings.songNum || lives === 0) {
-      setInGame(false);
-      setGameOver(true);
-      const addTogether = (num1, num2) => {
-        console.log('NUM1: ', num1 *60)
-        console.log('NUM2: ', num2)
-        console.log('num1 type: ', typeof num1);
-        console.log('num2 type: ', typeof num2);
-        const sum = (num1 * 60) + Number(num2);
-        console.log('SUM: ', sum)
-        return sum;
-      }
-      console.log(`${timer.mytimer.time.mm} : ${timer.mytimer.time.ss}`);
-      setFinalTime({minutes: timer.mytimer.time.mm, seconds: timer.mytimer.time.ss, string: `${timer.mytimer.time.mm}:${timer.mytimer.time.ss}`, totalSeconds: addTogether(timer.mytimer.time.mm, timer.mytimer.time.ss)})
-    }
-  }, [currentSongNum, currentGameSettings.songNum]);
-
-  useEffect(() => {
-    if (mainMenuVisible === true) {
-      if (currentSong !== undefined) {currentSong.mp3.stop()};
-      setBeforeStart(true);
-      //setUnplayedSongs(songArray.slice());
-      setUnplayedSongs([]);
-      setPlayedSongs([]);
-      setCurrentGameSettings({});
-      setCurrentScore(0);
-      setCurrentSongNum(1);
-      setNumCorrect(0);
-      setNumPartiallyCorrect(0);
-      setNumIncorrect(0);
-      setStatusMessage('');
-      setCompletedArtist('');
-      setCompletedTitle('');
-      setCompletedAlbumArt('');
-      setStatusMessageImg('');
-      setQuestionComplete(false);
-      setTitleInputBorder('solid 2px #001528');
-      setArtistInputBorder('solid 2px #001528');
-      setAvgTime({});
-      setLives(3);
-      timerObj.reset('mytimer');
-    }
-  }, [mainMenuVisible]);
-
-  const calculateAvgTime = () => {
-    const totalSeconds = Number(finalTime.minutes * 60) + Number(finalTime.seconds); // 125 s
-    const secondsPerSong = totalSeconds/currentGameSettings.songNum; // 12 s
-    const avgMin = () => {
-      if (secondsPerSong < 60) {
-        return '00';
-      }
-
-      if (secondsPerSong >= 60) {
-        const minPerSong = Math.floor(secondsPerSong/60);
-        if (minPerSong < 10) {
-          return `0${minPerSong}`
-        }
-
-        if (minPerSong >= 10) {
-          return minPerSong
-        }
-      }
-    }
-
-    const avgSec = (Math.floor(secondsPerSong%60) < 10 ? `0${Math.floor(secondsPerSong%60)}` : Math.floor(secondsPerSong%60));
-    const avgString = `${avgMin()}:${avgSec}`
-    setAvgTime({minutes: avgMin(), seconds: avgSec, secondsPerSong: secondsPerSong, string: avgString})
-    return secondsPerSong;
-  };
-
-
-  useEffect(() => {
-    if (gameOver === true && lives !== 0) {
-    var newObj = {
-      name: currentGameSettings.name,
-      difficulty: currentGameSettings.difficulty,
-      genre: currentGameSettings.genre,
-      score: currentScore,
-      songNum: Number(currentGameSettings.songNum),
-      correct: numCorrect,
-      partiallyCorrect: numPartiallyCorrect,
-      incorrect: numIncorrect,
-      time: finalTime.totalSeconds,
-      avg: calculateAvgTime()
-    };
-
-    axios.post('http://localhost:3000/scores', newObj)
-    .then(() => {
-      // setGameOver(false);
-      // setLeaderboardVisible(true);
-    }).catch((error) => {
-      console.log(error);
-    })
-  }
-  }, [gameOver]);
-
-  const goToLeaderboard = (e) => {
-    e.preventDefault();
-    setLeaderboardVisible(true);
-    setInGame(false);
-  }
-
-  const goToMainMenu = (e) => {
-    e.preventDefault();
-    setMainMenuVisible(true);
-    setInGame(false);
-  }
-
-
-  const getCorrectFeedback = () => {
-    setDisplayTutorialFeedback(true);
-    setStatusMessage("You're killing it! (+2 Pts)");
-    setCompletedArtist('Blind Melon');
-    setCompletedTitle('No Rain');
-    setCompletedAlbumArt(noRainAlbumArt);
-    setQuestionComplete(true);
-  }
-
-  const getPartiallyCorrectFeedback = () => {
-    setDisplayTutorialFeedback(true);
-    setStatusMessage(`Maybe next time! (+1 Pt)`);
-    setCompletedArtist('Michael Jackson');
-    setCompletedTitle('Billie Jean');
-    setCompletedAlbumArt(billieJeanAlbumArt);
-    setQuestionComplete(true);
-  }
-
-  const getIncorrectFeedback = () => {
-    setDisplayTutorialFeedback(true);
-    setStatusMessage(`Maybe next round! (+0 Pts)`);
-    setCompletedArtist('Alanis Morrisette');
-    setCompletedTitle('You Oughta Know');
-    setCompletedAlbumArt(youOughtaKnowAlbumArt);
-    setQuestionComplete(true);
-  }
-
-
+  const {mytimer:{time : {mm, ss}, status}} = timer;
   const tourRef = useRef();
   const ref1 = useRef();
   const ref2 = useRef();
@@ -403,7 +127,46 @@ const App = () => {
   const ref11 = useRef();
   const ref12 = useRef();
   const ref13 = useRef();
+  const [tourOpen, setTourOpen] = useState(false);
 
+  // Tutorial
+  const showTutorial = (e) => {
+    e.preventDefault();
+    setMainMenuVisible(false);
+    setInGame(false);
+    setInTutorial(true);
+    setDisplayTutorialReadyButton(true);
+    setTourOpen(true)
+  }
+  const closeTutorial = () => {
+    setInTutorial(false);
+    setMainMenuVisible(true);
+    setTourOpen(false)
+  }
+  const getCorrectFeedback = () => {
+    setDisplayTutorialFeedback(true);
+    setStatusMessage("You're killing it! (+2 Pts)");
+    setCompletedArtist('Blind Melon');
+    setCompletedTitle('No Rain');
+    setCompletedAlbumArt(noRainAlbumArt);
+    setQuestionComplete(true);
+  }
+  const getPartiallyCorrectFeedback = () => {
+    setDisplayTutorialFeedback(true);
+    setStatusMessage(`Maybe next time! (+1 Pt)`);
+    setCompletedArtist('Michael Jackson');
+    setCompletedTitle('Billie Jean');
+    setCompletedAlbumArt(billieJeanAlbumArt);
+    setQuestionComplete(true);
+  }
+  const getIncorrectFeedback = () => {
+    setDisplayTutorialFeedback(true);
+    setStatusMessage(`Maybe next round! (+0 Pts)`);
+    setCompletedArtist('Alanis Morrisette');
+    setCompletedTitle('You Oughta Know');
+    setCompletedAlbumArt(youOughtaKnowAlbumArt);
+    setQuestionComplete(true);
+  }
   const gameStartInfo = () => {
     return (
       <div>
@@ -414,7 +177,6 @@ const App = () => {
     </div>
     );
   };
-
   const makeGuessInfo = () => {
     return (
       <div>
@@ -427,7 +189,6 @@ const App = () => {
     </div>
     );
   };
-
   const correctFeedbackInfo = () => {
     return (
       <div>
@@ -437,7 +198,6 @@ const App = () => {
     </div>
     );
   };
-
   const partiallyCorrectFeedbackInfo = () => {
     return (
       <div>
@@ -447,7 +207,6 @@ const App = () => {
     </div>
     );
   };
-
   const IncorrectFeedbackInfo = () => {
     return (
       <div>
@@ -457,7 +216,6 @@ const App = () => {
     </div>
     );
   };
-
   const startNextRoundInfo = () => {
     return (
       <div>
@@ -467,7 +225,6 @@ const App = () => {
     </div>
     );
   };
-
   const leftSidebarInfo = () => {
     return (
       <div>
@@ -478,7 +235,6 @@ const App = () => {
     </div>
     );
   };
-
   const difficultySelectionInfo = () => {
     return (
       <div>
@@ -503,8 +259,6 @@ const App = () => {
     </div>
     );
   }
-
-  const [tourOpen, setTourOpen] = useState(false);
   const steps = [
     {
       title: 'Game Start',
@@ -603,425 +357,623 @@ const App = () => {
     },
   ];
 
+  const goToLeaderboard = (e) => {
+    e.preventDefault();
+    setLeaderboardVisible(true);
+    setInGame(false);
+  }
 
+  // In game onClick modal for Main Menu button
+  const showModal = () => {
+    setOpen(true);
+  };
+  const handleOk = (e) => {
+    e.preventDefault();
+    setOpen(false);
+    setInGame(false);
+    setMainMenuVisible(true);
+  };
+  const handleCancel = (e) => {
+    console.log(e);
+    setOpen(false);
+  };
+  const onStart = (_event, uiData) => {
+    const { clientWidth, clientHeight } = window.document.documentElement;
+    const targetRect = draggleRef.current?.getBoundingClientRect();
+    if (!targetRect) {
+      return;
+    }
+    setBounds({
+      left: -targetRect.left + uiData.x,
+      right: clientWidth - (targetRect.right - uiData.x),
+      top: -targetRect.top + uiData.y,
+      bottom: clientHeight - (targetRect.bottom - uiData.y),
+    });
+  };
 
+  // In game onClick modal for Leaderboard button
+  const showLeaderboardModal = () => {
+    setLeaderboardOpen(true);
+  };
+  const handleLeaderboardOk = (e) => {
+    e.preventDefault();
+    setLeaderboardOpen(false);
+    setInGame(false);
+    setLeaderboardVisible(true);
+  }
+  const handleLeaderboardCancel = (e) => {
+    console.log(e);
+    setLeaderboardOpen(false);
+  };
+  const onLeaderboardStart = (_event, uiData) => {
+    const { clientWidth, clientHeight } = window.document.documentElement;
+    const targetRect = draggleLeaderboardRef.current?.getBoundingClientRect();
+    if (!targetRect) {
+      return;
+    }
+    setLeaderboardBounds({
+      left: -targetRect.left + uiData.x,
+      right: clientWidth - (targetRect.right - uiData.x),
+      top: -targetRect.top + uiData.y,
+      bottom: clientHeight - (targetRect.bottom - uiData.y),
+    });
+  };
 
+  // In game onClick modal for Tutorial button
+  const showTutorialWarnModal = (e) => {
+    e.preventDefault();
+    setTutorialWarnOpen(true);
+  };
+  const handleTutorialWarnOk = (e) => {
+    e.preventDefault();
+    setInGame(false);
+    setTutorialWarnOpen(false);
+    showTutorial(e);
+  }
+  const handleTutorialWarnCancel = (e) => {
+    console.log(e);
+    setTutorialWarnOpen(false);
+  };
+  const onTutorialWarnStart = (_event, uiData) => {
+    const { clientWidth, clientHeight } = window.document.documentElement;
+    const targetRect = draggleTutorialWarnRef.current?.getBoundingClientRect();
+    if (!targetRect) {
+      return;
+    }
+    setTutorialWarnBounds({
+      left: -targetRect.left + uiData.x,
+      right: clientWidth - (targetRect.right - uiData.x),
+      top: -targetRect.top + uiData.y,
+      bottom: clientHeight - (targetRect.bottom - uiData.y),
+    });
+  };
 
-      useEffect(() => {
-          if (currentGameSettings.genre === 'Random') {
-            setSongArray(songsArray);
-            setUnplayedSongs(songsArray.slice());
-            setCurrentSong(songsArray.slice()[Math.floor(Math.random() * songsArray.slice().length)]);
-          }
-          if (currentGameSettings.genre === 'Pop') {
-            setSongArray(popSongsArray);
-            setUnplayedSongs(popSongsArray.slice());
-            setCurrentSong(popSongsArray.slice()[Math.floor(Math.random() * popSongsArray.slice().length)]);
+  // Timer
+  const notifier = useCallback((key, value) => {
+    setTimer({
+      [key] : value
+    });
+  }, [timerObj]);
+  function onActionClick() {
+    status === "INIT" ? timerObj.start("mytimer") : status === "RUNNING" ? timerObj.pause("mytimer") : timerObj.reset("mytimer");
+  }
+  const calculateAvgTime = () => {
+    const totalSeconds = Number(finalTime.minutes * 60) + Number(finalTime.seconds); // 125 s
+    const secondsPerSong = totalSeconds/currentGameSettings.songNum; // 12 s
+    const avgMin = () => {
+      if (secondsPerSong < 60) {
+        return '00';
+      }
 
-          }
-          if (currentGameSettings.genre === 'Alt/Rock') {
-            setSongArray(rockSongsArray);
-            setUnplayedSongs(rockSongsArray.slice());
-            setCurrentSong(rockSongsArray.slice()[Math.floor(Math.random() * rockSongsArray.slice().length)]);
+      if (secondsPerSong >= 60) {
+        const minPerSong = Math.floor(secondsPerSong/60);
+        if (minPerSong < 10) {
+          return `0${minPerSong}`
+        }
 
-          }
-      }, [currentGameSettings.genre])
+        if (minPerSong >= 10) {
+          return minPerSong
+        }
+      }
+    }
+    const avgSec = (Math.floor(secondsPerSong%60) < 10 ? `0${Math.floor(secondsPerSong%60)}` : Math.floor(secondsPerSong%60));
+    const avgString = `${avgMin()}:${avgSec}`
+    setAvgTime({minutes: avgMin(), seconds: avgSec, secondsPerSong: secondsPerSong, string: avgString})
+    return secondsPerSong;
+  };
 
+  useEffect(() => {
+    timerObj.init({
+      data : {
+        "mytimer" : {
+          time : {
+            mm : "00",
+            ss : "00"
+          },
+          status : "INIT"
+        }
+      },
+      notifier : notifier
+    });
+  }, [timerObj, notifier]);
+
+  useEffect(() => {
+    if (currentSongNum > currentGameSettings.songNum || lives === 0) {
+      setInGame(false);
+      setGameOver(true);
+      const addTogether = (num1, num2) => {
+        console.log('NUM1: ', num1 *60)
+        console.log('NUM2: ', num2)
+        console.log('num1 type: ', typeof num1);
+        console.log('num2 type: ', typeof num2);
+        const sum = (num1 * 60) + Number(num2);
+        console.log('SUM: ', sum)
+        return sum;
+      }
+      console.log(`${timer.mytimer.time.mm} : ${timer.mytimer.time.ss}`);
+      setFinalTime({minutes: timer.mytimer.time.mm, seconds: timer.mytimer.time.ss, string: `${timer.mytimer.time.mm}:${timer.mytimer.time.ss}`, totalSeconds: addTogether(timer.mytimer.time.mm, timer.mytimer.time.ss)})
+    }
+  }, [currentSongNum, currentGameSettings.songNum]);
+
+  useEffect(() => {
+    if (mainMenuVisible === true) {
+      if (currentSong !== undefined) {currentSong.mp3.stop()};
+      setBeforeStart(true);
+      setUnplayedSongs([]);
+      setPlayedSongs([]);
+      setCurrentGameSettings({});
+      setCurrentScore(0);
+      setCurrentSongNum(1);
+      setNumCorrect(0);
+      setNumPartiallyCorrect(0);
+      setNumIncorrect(0);
+      setStatusMessage('');
+      setCompletedArtist('');
+      setCompletedTitle('');
+      setCompletedAlbumArt('');
+      setStatusMessageImg('');
+      setQuestionComplete(false);
+      setTitleInputBorder('solid 2px #001528');
+      setArtistInputBorder('solid 2px #001528');
+      setAvgTime({});
+      setLives(3);
+      timerObj.reset('mytimer');
+    }
+  }, [mainMenuVisible]);
+
+  useEffect(() => {
+    if (gameOver === true && lives !== 0) {
+    var newObj = {
+      name: currentGameSettings.name,
+      difficulty: currentGameSettings.difficulty,
+      genre: currentGameSettings.genre,
+      score: currentScore,
+      songNum: Number(currentGameSettings.songNum),
+      correct: numCorrect,
+      partiallyCorrect: numPartiallyCorrect,
+      incorrect: numIncorrect,
+      time: finalTime.totalSeconds,
+      avg: calculateAvgTime()
+    };
+    axios.post('http://localhost:3000/scores', newObj)
+    .catch((error) => {
+      console.log(error);
+    })
+  }}, [gameOver]);
+
+  useEffect(() => {
+    if (currentGameSettings.genre === 'Random') {
+      setSongArray(songsArray);
+      setUnplayedSongs(songsArray.slice());
+      setCurrentSong(songsArray.slice()[Math.floor(Math.random() * songsArray.slice().length)]);
+    }
+    if (currentGameSettings.genre === 'Pop') {
+      setSongArray(popSongsArray);
+      setUnplayedSongs(popSongsArray.slice());
+      setCurrentSong(popSongsArray.slice()[Math.floor(Math.random() * popSongsArray.slice().length)]);
+    }
+    if (currentGameSettings.genre === 'Alt/Rock') {
+      setSongArray(rockSongsArray);
+      setUnplayedSongs(rockSongsArray.slice());
+      setCurrentSong(rockSongsArray.slice()[Math.floor(Math.random() * rockSongsArray.slice().length)]);
+    }
+  }, [currentGameSettings.genre])
 
   return (
     <Layout>
-      <Content style={{ padding: '0 50px'}}>
+      <Content>
         <Layout style={ inGame || inTutorial ? { border: 'solid 2px #001528', height: '980px', borderRadius: '7px'} : {height: '980px', backgroundColor: '#001528', borderRadius: '7px'}}>
           <Sider style={ inGame === true || inTutorial === true ? {display: 'block', height: '977px'} : {display: 'none'}}>
-            <div style={{backgroundColor: '#001528', height: '977px', width: '347px', zIndex: '-2', borderRight: '1px #001528 solid'}} ref={ref13}>
-              <div style={{backgroundColor: '#001528', height: '977px', width: '342px', zIndex: '-1', borderRight: '3px #1776ff dashed'}}>
-                <div style={{backgroundColor: '#001528', height: '977px', width: '334px', zIndex: '-1', borderRight: '1px #fafafa solid'}}>
+            <div id="siderOutermost" ref={ref13}>
+              <div id="siderMiddle">
+                <div id="siderInnermost">
 
-                  <div style={{height: '40%', color: '#fafafa', display: 'flex', flexWrap: 'wrap', alignContent: 'flex-start', justifyContent: 'center'}}>
-                    <div style={{width: '100%', height: '150px', fontSize: '28px', display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', marginTop: '20px'}}>
-                      <img src={whiteFlower2} style={{height: '300px', width: '300px'}} alt="" ref={ref4}/>
+                  <div id="songNum">
+                    <div id="songNumImg">
+                      <img id="songNumWhiteFlowerImg" src={whiteFlower2} alt="" ref={ref4}/>
                     </div>
-                    <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center', marginTop: '-60px', borderRadius: '50%', backgroundColor: '#001528', zIndex: '10', color: '#fafafa', width: '135px', height: '135px', border: 'solid 1px #001528'}}>
-                    <div style={{fontSize: '24px', color: '#fafafa', marginBottom: '-80px'}}>
-                      Song
+                    <div id="songNumText">
+                      <div id="songNumSong">
+                        Song
                       </div>
-                      <div style={{fontSize: '75px', marginTop: '0px', marginBottom: '0px', width: '100%', display: 'flex', justifyContent: 'center'}}>
+                      <div id="songNumNum">
                         #{currentSongNum}
                       </div>
                     </div>
                   </div>
 
-                  <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center'}}>
-                    <div style={{color: '#1776ff', fontSize: '60px', width: '60%', display: 'flex', flexWrap: 'wrap', justifyContent: 'center', marginTop: '-65px'}} ref={ref5}>
+                  <div id="timerDifficultyGenre">
+                    <div id="timer" ref={ref5}>
                       {mm}:{ss}
                     </div>
-                    <div style={inGame ? {color: '#fafafa', fontSize: '24px', marginTop: '5px'} : {display: 'none'}} >
-                    {currentGameSettings.difficulty} | {currentGameSettings.genre}
-                    </div>
-                    <div style={inTutorial ? {color: '#fafafa', fontSize: '24px', marginTop: '5px'} : {display: 'none'}} ref={ref1}>
-                    Easy | Random
+                    <div id="difficultyGenre">
+                      {currentGameSettings.difficulty} | {currentGameSettings.genre}
                     </div>
                   </div>
 
-              <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center', color: '#fafafa', fontSize: '60px', backgroundColor: '#001528', marginTop: '25px', marginLeft: '20%', width: '60%'}}>
-                <div style={{width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '5px'}} ref={ref6}>
-                  <img src={correct} style={{marginRight: '20px', height: '75px', width: '75px'}} alt=""/> {numCorrect}
-                </div>
-                <div style={currentGameSettings.difficulty !== "Medium" && currentGameSettings.difficulty !== "Hard" ? {width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '5px'} : {display: 'none'}} ref={ref7}>
-                  <img src={partial} style={{marginRight: '20px', height: '75px', width: '75px'}} alt=""/> {numPartiallyCorrect}
-                </div>
-                <div style={{width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center'}} ref={ref8}>
-                  <img src={incorrect} style={{marginRight: '20px', height: '75px', width: '75px'}} alt=""/> {numIncorrect}
-                </div>
-              </div>
-              <div style={inGame ? {fontSize: '24px', color: '#fafafa', justifyContent: 'center', marginLeft:'35%'} : {display: 'none'}}>
-                      {currentGameSettings.songNum} <img src={musicalNote2} style={{height: '45px', width: '45px', paddingTop: '30px', marginLeft: '-18px', marginRight: '-18px'}}/>  | {currentScore} Pts
-                      </div>
-              <div ref={ref2} style={inTutorial ? {fontSize: '24px', color: '#fafafa', display: 'inline-flex', justifyContent: 'center', marginLeft:'35%', marginTop: '20px'}: {display: 'none'}} >
-                      <div style={{marginTop: '-22px'}}>10 <img src={musicalNote2} style={{height: '45px', width: '45px', paddingTop: '30px', marginLeft: '-18px', marginRight: '-18px'}}/></div> |
-                      <div>
-                      {currentScore} Pts
-                      </div>
-                      </div>
-              <div style={currentGameSettings.difficulty === "Hard" ? {display: 'flex', justifyContent: 'center', color: '#1776ff', fontSize: '50px', marginTop: '20px', borderBottom: '3px dashed #1776ff', marginLeft: '90px', marginRight: '90px', paddingBottom: '5px'} : {display: 'none'}}>
-                <UserOutlined style={lives < 3 ? {color: '#001528'} : {color: '#1776ff'}}/>
-                <UserOutlined style={lives < 2 ? {color: '#001528'} : {color: '#1776ff'}}/>
-                <UserOutlined style={lives < 1 ? {color: '#001528'} : {color: '#1776ff'}}/>
-              </div>
+                  <div id="gameProgress">
+                    <div id="correct" ref={ref6}>
+                      <img id="progressImgSider"src={correct} alt=""/> {numCorrect}
+                    </div>
+                    <div id="partial" style={currentGameSettings.difficulty !== "Medium" && currentGameSettings.difficulty !== "Hard" ? {width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '5px'} : {display: 'none'}} ref={ref7}>
+                      <img id="progressImgSider" src={partial} alt=""/> {numPartiallyCorrect}
+                    </div>
+                    <div id="incorrect" ref={ref8}>
+                      <img id="progressImgSider" src={incorrect} alt=""/> {numIncorrect}
+                    </div>
+                  </div>
 
-            <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'flex-end', alignContent: 'flex-end', position: 'absolute', bottom: '15px', left: '20px'}}>
-              <div><Button type='primary' style={{margin: '10px', width: '270px', height: '50px', fontSize: '24px'}} onClick={(e) => {showTutorialWarnModal(e)}}>How to Play</Button></div>
-              <div><Button type='primary' style={{margin: '10px', width: '270px', height: '50px', fontSize: '24px'}} onClick={(e) => {showLeaderboardModal(e)}}>Leaderboard</Button></div>
-              <div><Button type='primary' style={{margin: '10px', width: '270px', height: '50px', fontSize: '24px'}} onClick={showModal}>Main Menu</Button></div>
-            </div>
-            </div>
-            </div>
+                  <div id="totalSongNumScore">
+                    {currentGameSettings.songNum}
+                    <img id="totalSongNumImg" src={musicalNote2}/>
+                    | {currentScore} Pts
+                  </div>
+
+                  <div ref={ref2} style={inTutorial ? {fontSize: '24px', color: '#fafafa', display: 'inline-flex', justifyContent: 'center', marginLeft:'35%', marginTop: '20px'}: {display: 'none'}} >
+                    <div id="totalSongNumTutorial">
+                      10 <img id="musicalNoteSiderTutorial" src={musicalNote2}/>
+                    </div> |
+                    <div>
+                      {currentScore} Pts
+                    </div>
+                  </div>
+
+                  <div style={currentGameSettings.difficulty === "Hard" ? {display: 'flex', justifyContent: 'center', color: '#1776ff', fontSize: '50px', marginTop: '20px', borderBottom: '3px dashed #1776ff', marginLeft: '90px', marginRight: '90px', paddingBottom: '5px'} : {display: 'none'}}>
+                    <UserOutlined style={lives < 3 ? {color: '#001528'} : {color: '#1776ff'}}/>
+                    <UserOutlined style={lives < 2 ? {color: '#001528'} : {color: '#1776ff'}}/>
+                    <UserOutlined style={lives < 1 ? {color: '#001528'} : {color: '#1776ff'}}/>
+                  </div>
+
+                  <div id="buttonsSider">
+
+                      <Button id="siderButton" type='primary' onClick={(e) => {showTutorialWarnModal(e)}}>How to Play</Button>
+
+                      <Button id="siderButton" type='primary' onClick={(e) => {showLeaderboardModal(e)}}>Leaderboard</Button>
+
+                      <Button id="siderButton" type='primary' onClick={showModal}>Main Menu</Button>
+                  </div>
+
+                </div>
+              </div>
             </div>
           </Sider>
 
-            <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', alignContent: 'center'}}>
+          <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', alignContent: 'center'}}>
             <div style={ mainMenuVisible === false ? {display: 'none'} : {display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'absolute', left: '18%', top: '6.5%'}}>
-                <MainMenu
-                  setNewGameButtonClicked={setNewGameButtonClicked}
-                  setMainMenuVisible={setMainMenuVisible}
-                  setNewGameMenuVisible={setNewGameMenuVisible}
-                  setLeaderboardVisible={setLeaderboardVisible}
-                  inTutorial={inTutorial}
-                  setInTutorial={setInTutorial}
-                  showTutorial={showTutorial}
-                />
-              </div>
-              <div style={ newGameMenuVisible === true ? {display: 'flex', justifyContent: 'center', alignItems: 'center', position: 'absolute', left: '18%', top: '6.5%'} : {display: 'none'}}>
-                <NewGameMenu
-                  setCurrentGameSettings={setCurrentGameSettings}
-                  setNewGameMenuVisible={setNewGameMenuVisible}
-                  setMainMenuVisible={setMainMenuVisible}
-                  setInGame={setInGame}
-                  inTutorial={inTutorial}
-                  setInTutorial={setInTutorial}
-                  showTutorial={showTutorial}
-                />
-              </div>
-              <div style={inTutorial === true ? {display: 'block', width: '100%'} : {display: 'none'}}>
-                <Tutorial
-                  setNewGameButtonClicked={setNewGameButtonClicked}
-                  newGameButtonClicked={newGameButtonClicked}
-                  songArray={songArray}
-                  setSongArray={setSongArray}
-                  unplayedSongs={unplayedSongs}
-                  setUnplayedSongs={setUnplayedSongs}
-                  playedSongs={playedSongs}
-                  setPlayedSongs={setPlayedSongs}
-                  currentScore={currentScore}
-                  setCurrentScore={setCurrentScore}
-                  currentSong={currentSong}
-                  setCurrentSong={setCurrentSong}
-                  currentSongNum={currentSongNum}
-                  setCurrentSongNum={setCurrentSongNum}
-                  numCorrect={numCorrect}
-                  setNumCorrect={setNumCorrect}
-                  numPartiallyCorrect={numPartiallyCorrect}
-                  setNumPartiallyCorrect={setNumPartiallyCorrect}
-                  numIncorrect={numIncorrect}
-                  setNumIncorrect={setNumIncorrect}
-                  setInGame={setInGame}
-                  setGameOver={setGameOver}
-                  questionComplete={questionComplete}
-                  setQuestionComplete={setQuestionComplete}
-                  statusMessage={statusMessage}
-                  setStatusMessage={setStatusMessage}
-                  completedTitle={completedTitle}
-                  setCompletedTitle={setCompletedTitle}
-                  completedArtist={completedArtist}
-                  setCompletedArtist={setCompletedArtist}
-                  completedAlbumArt={completedAlbumArt}
-                  setCompletedAlbumArt={setCompletedAlbumArt}
-                  onActionClick={onActionClick}
-                  beforeStart={beforeStart}
-                  setBeforeStart={setBeforeStart}
-                  titleInput={titleInput}
-                  setTitleInput={setTitleInput}
-                  artistInput={artistInput}
-                  setArtistInput={setArtistInput}
-                  titleInputBorder={titleInputBorder}
-                  setTitleInputBorder={setTitleInputBorder}
-                  artistInputBorder={artistInputBorder}
-                  setArtistInputBorder={setArtistInputBorder}
-                  titleInputCorrect={titleInputCorrect}
-                  setTitleInputCorrect={setTitleInputCorrect}
-                  artistInputCorrect={artistInputCorrect}
-                  setArtistInputCorrect={setArtistInputCorrect}
-                  disabledTitleInput={disabledTitleInput}
-                  setDisabledTitleInput={setDisabledTitleInput}
-                  disabledArtistInput={disabledArtistInput}
-                  setDisabledArtistInput={setDisabledArtistInput}
-                  isCorrectTitleImg={isCorrectTitleImg}
-                  setIsCorrectTitleImg={setIsCorrectTitleImg}
-                  isCorrectArtistImg={isCorrectArtistImg}
-                  setIsCorrectArtistImg={setIsCorrectArtistImg}
-                  currentGameSettings={currentGameSettings}
-                  setCurrentGameSettings={setCurrentGameSettings}
-                  statusMessageImg={statusMessageImg}
-                  setStatusMessageImg={setStatusMessageImg}
-                  lives={lives}
-                  setLives={setLives}
-                  tourRef={tourRef}
-                  tourOpen={tourOpen}
-                  setTourOpen={setTourOpen}
-                  steps={steps}
-                  inTutorial={inTutorial}
-                  setInTutorial={setInTutorial}
-                  ref9={ref9}
-                  ref10={ref10}
-                  ref11={ref11}
-                  ref12={ref12}
-                  displayTutorialReadyButton={displayTutorialReadyButton}
-                  setDisplayTutorialReadyButton={setDisplayTutorialReadyButton}
-                  displayTutorialFeedback={displayTutorialFeedback}
-                  setDisplayTutorialFeedback={setDisplayTutorialFeedback}
-                  closeTutorial={closeTutorial}
-                />
-              </div>
-              <div style={inGame === true ? {display: 'block', width: '100%'} : {display: 'none'}}>
-                <Song
-                  setNewGameButtonClicked={setNewGameButtonClicked}
-                  newGameButtonClicked={newGameButtonClicked}
-                  songArray={songArray}
-                  setSongArray={setSongArray}
-                  unplayedSongs={unplayedSongs}
-                  setUnplayedSongs={setUnplayedSongs}
-                  playedSongs={playedSongs}
-                  setPlayedSongs={setPlayedSongs}
-                  currentScore={currentScore}
-                  setCurrentScore={setCurrentScore}
-                  currentSong={currentSong}
-                  setCurrentSong={setCurrentSong}
-                  currentSongNum={currentSongNum}
-                  setCurrentSongNum={setCurrentSongNum}
-                  numCorrect={numCorrect}
-                  setNumCorrect={setNumCorrect}
-                  numPartiallyCorrect={numPartiallyCorrect}
-                  setNumPartiallyCorrect={setNumPartiallyCorrect}
-                  numIncorrect={numIncorrect}
-                  setNumIncorrect={setNumIncorrect}
-                  setInGame={setInGame}
-                  setGameOver={setGameOver}
-                  questionComplete={questionComplete}
-                  setQuestionComplete={setQuestionComplete}
-                  statusMessage={statusMessage}
-                  setStatusMessage={setStatusMessage}
-                  completedTitle={completedTitle}
-                  setCompletedTitle={setCompletedTitle}
-                  completedArtist={completedArtist}
-                  setCompletedArtist={setCompletedArtist}
-                  completedAlbumArt={completedAlbumArt}
-                  setCompletedAlbumArt={setCompletedAlbumArt}
-                  onActionClick={onActionClick}
-                  beforeStart={beforeStart}
-                  setBeforeStart={setBeforeStart}
-                  titleInput={titleInput}
-                  setTitleInput={setTitleInput}
-                  artistInput={artistInput}
-                  setArtistInput={setArtistInput}
-                  titleInputBorder={titleInputBorder}
-                  setTitleInputBorder={setTitleInputBorder}
-                  artistInputBorder={artistInputBorder}
-                  setArtistInputBorder={setArtistInputBorder}
-                  titleInputCorrect={titleInputCorrect}
-                  setTitleInputCorrect={setTitleInputCorrect}
-                  artistInputCorrect={artistInputCorrect}
-                  setArtistInputCorrect={setArtistInputCorrect}
-                  disabledTitleInput={disabledTitleInput}
-                  setDisabledTitleInput={setDisabledTitleInput}
-                  disabledArtistInput={disabledArtistInput}
-                  setDisabledArtistInput={setDisabledArtistInput}
-                  isCorrectTitleImg={isCorrectTitleImg}
-                  setIsCorrectTitleImg={setIsCorrectTitleImg}
-                  isCorrectArtistImg={isCorrectArtistImg}
-                  setIsCorrectArtistImg={setIsCorrectArtistImg}
-                  currentGameSettings={currentGameSettings}
-                  setCurrentGameSettings={setCurrentGameSettings}
-                  statusMessageImg={statusMessageImg}
-                  setStatusMessageImg={setStatusMessageImg}
-                  lives={lives}
-                  setLives={setLives}
-                />
-              </div>
-              <div style={ gameOver === true ? {display: 'flex', justifyContent: 'center', alignItems: 'center', position: 'absolute', left: '18%', top: '6.5%'} : {display: 'none'}}>
-                <GameOver
-                  currentScore={currentScore}
-                  numCorrect={numCorrect}
-                  numPartiallyCorrect={numPartiallyCorrect}
-                  numIncorrect={numIncorrect}
-                  setGameOver={setGameOver}
-                  setMainMenuVisible={setMainMenuVisible}
-                  currentGameSettings={currentGameSettings}
-                  setLeaderboardVisible={setLeaderboardVisible}
-                  finalTime={finalTime}
-                  setQuestionComplete={setQuestionComplete}
-                  titleInput={titleInput}
-                  setTitleInput={setTitleInput}
-                  artistInput={artistInput}
-                  setArtistInput={setArtistInput}
-                  titleInputBorder={titleInputBorder}
-                  setTitleInputBorder={setTitleInputBorder}
-                  artistInputBorder={artistInputBorder}
-                  setArtistInputBorder={setArtistInputBorder}
-                  titleInputCorrect={titleInputCorrect}
-                  setTitleInputCorrect={setTitleInputCorrect}
-                  artistInputCorrect={artistInputCorrect}
-                  setArtistInputCorrect={setArtistInputCorrect}
-                  disabledTitleInput={disabledTitleInput}
-                  setDisabledTitleInput={setDisabledTitleInput}
-                  disabledArtistInput={disabledArtistInput}
-                  setDisabledArtistInput={setDisabledArtistInput}
-                  isCorrectTitleImg={isCorrectTitleImg}
-                  setIsCorrectTitleImg={setIsCorrectTitleImg}
-                  isCorrectArtistImg={isCorrectArtistImg}
-                  setIsCorrectArtistImg={setIsCorrectArtistImg}
-                  setBeforeStart={setBeforeStart}
-                  setAvgTime={setAvgTime}
-                  avgTime={avgTime}
-                  setTimer={setTimer}
-                  completedAlbumArt={completedAlbumArt}
-                  completedArtist={completedArtist}
-                  completedTitle={completedTitle}
-                  goToLeaderboard={goToLeaderboard}
-                  lives={lives}
-                />
-              </div>
-              <div style={ leaderboardVisible === true ? {display: 'flex', justifyContent: 'center', alignItems: 'center', position: 'absolute', left: '18%', top: '6.5%'} : {display: 'none'}}>
-
-                <Leaderboard
-                  leaderboardVisible={leaderboardVisible}
-                  setLeaderboardVisible={setLeaderboardVisible}
-                  setMainMenuVisible={setMainMenuVisible}
-                  setGameOver={setGameOver}
-                />
-              </div>
-              <Modal
-        title={
-          <div
-            style={{
-              width: '100%',
-              cursor: 'move',
-              fontSize: '24px'
-            }}
-            onMouseOver={() => {
-              if (disabled) {
-                setDisabled(false);
-              }
-            }}
-            onMouseOut={() => {setDisabled(true);}}
-            onFocus={() => {}}
-            onBlur={() => {}}>
-              Are you sure?
-          </div>
-        }
-        open={open}
-        onOk={handleOk}
-        onCancel={handleCancel}
-        modalRender={(modal) => (
-          <Draggable
-            disabled={disabled}
-            bounds={bounds}
-            onStart={(event, uiData) => onStart(event, uiData)}
-          >
-            <div ref={draggleRef}>{modal}</div>
-          </Draggable>
-        )}
-      >
-        <div style={{fontSize: '18px'}}>By returning to the main menu, <b>all progress will be lost</b>!</div>
-      </Modal>
-      <Modal
-        title={
-          <div
-            style={{
-              width: '100%',
-              cursor: 'move',
-              fontSize: '24px'
-            }}
-            onMouseOver={() => {
-              if (leaderboardDisabled) {
-                setLeaderboardDisabled(false);
-              }
-            }}
-            onMouseOut={() => {setLeaderboardDisabled(true);}}
-            onFocus={() => {}}
-            onBlur={() => {}}>
-              Are you sure?
-          </div>
-        }
-        open={leaderboardOpen}
-        onOk={handleLeaderboardOk}
-        onCancel={handleLeaderboardCancel}
-        modalRender={(modal) => (
-          <Draggable
-            disabled={leaderboardDisabled}
-            bounds={leaderboardBounds}
-            onStart={(event, uiData) => onLeaderboardStart(event, uiData)}
-          >
-            <div ref={draggleLeaderboardRef}>{modal}</div>
-          </Draggable>
-        )}
-      >
-        <div style={{fontSize: '18px'}}>By navigating to the leaderboard, <b>all progress will be lost</b>!</div>
-      </Modal>
-      <Modal
-        title={
-          <div
-            style={{
-              width: '100%',
-              cursor: 'move',
-              fontSize: '24px'
-            }}
-            onMouseOver={() => {
-              if (tutorialWarnDisabled) {
-                setTutorialWarnDisabled(false);
-              }
-            }}
-            onMouseOut={() => {setTutorialWarnDisabled(true);}}
-            onFocus={() => {}}
-            onBlur={() => {}}>
-              Are you sure?
-          </div>
-        }
-        open={tutorialWarnOpen}
-        onOk={(e) => {handleTutorialWarnOk(e)}}
-        onCancel={handleTutorialWarnCancel}
-        modalRender={(modal) => (
-          <Draggable
-            disabled={tutorialWarnDisabled}
-            bounds={tutorialWarnBounds}
-            onStart={(event, uiData) => onTutorialWarnStart(event, uiData)}
-          >
-            <div ref={draggleTutorialWarnRef}>{modal}</div>
-          </Draggable>
-        )}
-      >
-        <div style={{fontSize: '18px'}}>By navigating to the Tutorial, <b>all progress will be lost</b>!</div>
-      </Modal>
+              <MainMenu
+                setNewGameButtonClicked={setNewGameButtonClicked}
+                setMainMenuVisible={setMainMenuVisible}
+                setNewGameMenuVisible={setNewGameMenuVisible}
+                setLeaderboardVisible={setLeaderboardVisible}
+                inTutorial={inTutorial}
+                setInTutorial={setInTutorial}
+                showTutorial={showTutorial}/>
             </div>
+
+            <div style={ newGameMenuVisible === true ? {display: 'flex', justifyContent: 'center', alignItems: 'center', position: 'absolute', left: '18%', top: '6.5%'} : {display: 'none'}}>
+              <NewGameMenu
+                setCurrentGameSettings={setCurrentGameSettings}
+                setNewGameMenuVisible={setNewGameMenuVisible}
+                setMainMenuVisible={setMainMenuVisible}
+                setInGame={setInGame}
+                inTutorial={inTutorial}
+                setInTutorial={setInTutorial}
+                showTutorial={showTutorial}/>
+            </div>
+
+            <div style={inTutorial === true ? {display: 'block', width: '100%'} : {display: 'none'}}>
+              <Tutorial
+                setNewGameButtonClicked={setNewGameButtonClicked}
+                newGameButtonClicked={newGameButtonClicked}
+                songArray={songArray}
+                setSongArray={setSongArray}
+                unplayedSongs={unplayedSongs}
+                setUnplayedSongs={setUnplayedSongs}
+                playedSongs={playedSongs}
+                setPlayedSongs={setPlayedSongs}
+                currentScore={currentScore}
+                setCurrentScore={setCurrentScore}
+                currentSong={currentSong}
+                setCurrentSong={setCurrentSong}
+                currentSongNum={currentSongNum}
+                setCurrentSongNum={setCurrentSongNum}
+                numCorrect={numCorrect}
+                setNumCorrect={setNumCorrect}
+                numPartiallyCorrect={numPartiallyCorrect}
+                setNumPartiallyCorrect={setNumPartiallyCorrect}
+                numIncorrect={numIncorrect}
+                setNumIncorrect={setNumIncorrect}
+                setInGame={setInGame}
+                setGameOver={setGameOver}
+                questionComplete={questionComplete}
+                setQuestionComplete={setQuestionComplete}
+                statusMessage={statusMessage}
+                setStatusMessage={setStatusMessage}
+                completedTitle={completedTitle}
+                setCompletedTitle={setCompletedTitle}
+                completedArtist={completedArtist}
+                setCompletedArtist={setCompletedArtist}
+                completedAlbumArt={completedAlbumArt}
+                setCompletedAlbumArt={setCompletedAlbumArt}
+                onActionClick={onActionClick}
+                beforeStart={beforeStart}
+                setBeforeStart={setBeforeStart}
+                titleInput={titleInput}
+                setTitleInput={setTitleInput}
+                artistInput={artistInput}
+                setArtistInput={setArtistInput}
+                titleInputBorder={titleInputBorder}
+                setTitleInputBorder={setTitleInputBorder}
+                artistInputBorder={artistInputBorder}
+                setArtistInputBorder={setArtistInputBorder}
+                titleInputCorrect={titleInputCorrect}
+                setTitleInputCorrect={setTitleInputCorrect}
+                artistInputCorrect={artistInputCorrect}
+                setArtistInputCorrect={setArtistInputCorrect}
+                disabledTitleInput={disabledTitleInput}
+                setDisabledTitleInput={setDisabledTitleInput}
+                disabledArtistInput={disabledArtistInput}
+                setDisabledArtistInput={setDisabledArtistInput}
+                isCorrectTitleImg={isCorrectTitleImg}
+                setIsCorrectTitleImg={setIsCorrectTitleImg}
+                isCorrectArtistImg={isCorrectArtistImg}
+                setIsCorrectArtistImg={setIsCorrectArtistImg}
+                currentGameSettings={currentGameSettings}
+                setCurrentGameSettings={setCurrentGameSettings}
+                statusMessageImg={statusMessageImg}
+                setStatusMessageImg={setStatusMessageImg}
+                lives={lives}
+                setLives={setLives}
+                tourRef={tourRef}
+                tourOpen={tourOpen}
+                setTourOpen={setTourOpen}
+                steps={steps}
+                inTutorial={inTutorial}
+                setInTutorial={setInTutorial}
+                ref9={ref9}
+                ref10={ref10}
+                ref11={ref11}
+                ref12={ref12}
+                displayTutorialReadyButton={displayTutorialReadyButton}
+                setDisplayTutorialReadyButton={setDisplayTutorialReadyButton}
+                displayTutorialFeedback={displayTutorialFeedback}
+                setDisplayTutorialFeedback={setDisplayTutorialFeedback}
+                closeTutorial={closeTutorial}/>
+            </div>
+
+            <div style={inGame === true ? {display: 'block', width: '100%'} : {display: 'none'}}>
+              <Song
+                setNewGameButtonClicked={setNewGameButtonClicked}
+                newGameButtonClicked={newGameButtonClicked}
+                songArray={songArray}
+                setSongArray={setSongArray}
+                unplayedSongs={unplayedSongs}
+                setUnplayedSongs={setUnplayedSongs}
+                playedSongs={playedSongs}
+                setPlayedSongs={setPlayedSongs}
+                currentScore={currentScore}
+                setCurrentScore={setCurrentScore}
+                currentSong={currentSong}
+                setCurrentSong={setCurrentSong}
+                currentSongNum={currentSongNum}
+                setCurrentSongNum={setCurrentSongNum}
+                numCorrect={numCorrect}
+                setNumCorrect={setNumCorrect}
+                numPartiallyCorrect={numPartiallyCorrect}
+                setNumPartiallyCorrect={setNumPartiallyCorrect}
+                numIncorrect={numIncorrect}
+                setNumIncorrect={setNumIncorrect}
+                setInGame={setInGame}
+                setGameOver={setGameOver}
+                questionComplete={questionComplete}
+                setQuestionComplete={setQuestionComplete}
+                statusMessage={statusMessage}
+                setStatusMessage={setStatusMessage}
+                completedTitle={completedTitle}
+                setCompletedTitle={setCompletedTitle}
+                completedArtist={completedArtist}
+                setCompletedArtist={setCompletedArtist}
+                completedAlbumArt={completedAlbumArt}
+                setCompletedAlbumArt={setCompletedAlbumArt}
+                onActionClick={onActionClick}
+                beforeStart={beforeStart}
+                setBeforeStart={setBeforeStart}
+                titleInput={titleInput}
+                setTitleInput={setTitleInput}
+                artistInput={artistInput}
+                setArtistInput={setArtistInput}
+                titleInputBorder={titleInputBorder}
+                setTitleInputBorder={setTitleInputBorder}
+                artistInputBorder={artistInputBorder}
+                setArtistInputBorder={setArtistInputBorder}
+                titleInputCorrect={titleInputCorrect}
+                setTitleInputCorrect={setTitleInputCorrect}
+                artistInputCorrect={artistInputCorrect}
+                setArtistInputCorrect={setArtistInputCorrect}
+                disabledTitleInput={disabledTitleInput}
+                setDisabledTitleInput={setDisabledTitleInput}
+                disabledArtistInput={disabledArtistInput}
+                setDisabledArtistInput={setDisabledArtistInput}
+                isCorrectTitleImg={isCorrectTitleImg}
+                setIsCorrectTitleImg={setIsCorrectTitleImg}
+                isCorrectArtistImg={isCorrectArtistImg}
+                setIsCorrectArtistImg={setIsCorrectArtistImg}
+                currentGameSettings={currentGameSettings}
+                setCurrentGameSettings={setCurrentGameSettings}
+                statusMessageImg={statusMessageImg}
+                setStatusMessageImg={setStatusMessageImg}
+                lives={lives}
+                setLives={setLives}/>
+            </div>
+
+            <div style={ gameOver === true ? {display: 'flex', justifyContent: 'center', alignItems: 'center', position: 'absolute', left: '18%', top: '6.5%'} : {display: 'none'}}>
+              <GameOver
+                currentScore={currentScore}
+                numCorrect={numCorrect}
+                numPartiallyCorrect={numPartiallyCorrect}
+                numIncorrect={numIncorrect}
+                setGameOver={setGameOver}
+                setMainMenuVisible={setMainMenuVisible}
+                currentGameSettings={currentGameSettings}
+                setLeaderboardVisible={setLeaderboardVisible}
+                finalTime={finalTime}
+                setQuestionComplete={setQuestionComplete}
+                titleInput={titleInput}
+                setTitleInput={setTitleInput}
+                artistInput={artistInput}
+                setArtistInput={setArtistInput}
+                titleInputBorder={titleInputBorder}
+                setTitleInputBorder={setTitleInputBorder}
+                artistInputBorder={artistInputBorder}
+                setArtistInputBorder={setArtistInputBorder}
+                titleInputCorrect={titleInputCorrect}
+                setTitleInputCorrect={setTitleInputCorrect}
+                artistInputCorrect={artistInputCorrect}
+                setArtistInputCorrect={setArtistInputCorrect}
+                disabledTitleInput={disabledTitleInput}
+                setDisabledTitleInput={setDisabledTitleInput}
+                disabledArtistInput={disabledArtistInput}
+                setDisabledArtistInput={setDisabledArtistInput}
+                isCorrectTitleImg={isCorrectTitleImg}
+                setIsCorrectTitleImg={setIsCorrectTitleImg}
+                isCorrectArtistImg={isCorrectArtistImg}
+                setIsCorrectArtistImg={setIsCorrectArtistImg}
+                setBeforeStart={setBeforeStart}
+                setAvgTime={setAvgTime}
+                avgTime={avgTime}
+                setTimer={setTimer}
+                completedAlbumArt={completedAlbumArt}
+                completedArtist={completedArtist}
+                completedTitle={completedTitle}
+                goToLeaderboard={goToLeaderboard}
+                lives={lives}/>
+            </div>
+
+            <div style={ leaderboardVisible === true ? {display: 'flex', justifyContent: 'center', alignItems: 'center', position: 'absolute', left: '18%', top: '6.5%'} : {display: 'none'}}>
+              <Leaderboard
+                leaderboardVisible={leaderboardVisible}
+                setLeaderboardVisible={setLeaderboardVisible}
+                setMainMenuVisible={setMainMenuVisible}
+                setGameOver={setGameOver}/>
+            </div>
+
+            <Modal
+              title={
+                <div
+                  style={{
+                    width: '100%',
+                    cursor: 'move',
+                    fontSize: '24px'
+                  }}
+                  onMouseOver={() => {
+                    if (disabled) {
+                      setDisabled(false);
+                    }
+                  }}
+                  onMouseOut={() => {setDisabled(true);}}
+                  onFocus={() => {}}
+                  onBlur={() => {}}>
+                  Are you sure?
+                </div>}
+              open={open}
+              onOk={handleOk}
+              onCancel={handleCancel}
+              modalRender={(modal) => (
+                <Draggable
+                  disabled={disabled}
+                  bounds={bounds}
+                  onStart={(event, uiData) => onStart(event, uiData)}>
+                  <div ref={draggleRef}>{modal}</div>
+                </Draggable>
+              )}>
+              <div style={{fontSize: '18px'}}>By returning to the main menu, <b>all progress will be lost</b>!</div>
+            </Modal>
+
+            <Modal
+              title={
+                <div
+                  style={{
+                    width: '100%',
+                    cursor: 'move',
+                    fontSize: '24px'
+                  }}
+                  onMouseOver={() => {
+                    if (leaderboardDisabled) {
+                      setLeaderboardDisabled(false);
+                    }
+                  }}
+                  onMouseOut={() => {setLeaderboardDisabled(true);}}
+                  onFocus={() => {}}
+                  onBlur={() => {}}>
+                  Are you sure?
+                </div>}
+              open={leaderboardOpen}
+              onOk={handleLeaderboardOk}
+              onCancel={handleLeaderboardCancel}
+              modalRender={(modal) => (
+                <Draggable
+                  disabled={leaderboardDisabled}
+                  bounds={leaderboardBounds}
+                  onStart={(event, uiData) => onLeaderboardStart(event, uiData)}>
+                  <div ref={draggleLeaderboardRef}>{modal}</div>
+                </Draggable>
+              )}>
+              <div style={{fontSize: '18px'}}>By navigating to the leaderboard, <b>all progress will be lost</b>!</div>
+            </Modal>
+
+            <Modal
+              title={
+                <div
+                  style={{
+                    width: '100%',
+                    cursor: 'move',
+                    fontSize: '24px'
+                  }}
+                  onMouseOver={() => {
+                    if (tutorialWarnDisabled) {
+                      setTutorialWarnDisabled(false);
+                    }
+                  }}
+                  onMouseOut={() => {setTutorialWarnDisabled(true);}}
+                  onFocus={() => {}}
+                  onBlur={() => {}}>
+                  Are you sure?
+                </div>}
+              open={tutorialWarnOpen}
+              onOk={(e) => {handleTutorialWarnOk(e)}}
+              onCancel={handleTutorialWarnCancel}
+              modalRender={(modal) => (
+                <Draggable
+                  disabled={tutorialWarnDisabled}
+                  bounds={tutorialWarnBounds}
+                  onStart={(event, uiData) => onTutorialWarnStart(event, uiData)}>
+                  <div ref={draggleTutorialWarnRef}>{modal}</div>
+                </Draggable>
+              )}>
+              <div style={{fontSize: '18px'}}>By navigating to the Tutorial, <b>all progress will be lost</b>!</div>
+            </Modal>
+
+          </div>
         </Layout>
       </Content>
     </Layout>
